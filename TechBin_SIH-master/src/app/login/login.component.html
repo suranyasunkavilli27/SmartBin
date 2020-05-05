@@ -1,0 +1,49 @@
+<html>
+  <body class="bg">
+    <mat-toolbar>
+      <span>Tech Bin</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+
+    <!-- <div>
+      <div id="chart-container"></div>
+    </div> -->
+    <div class="chart-wrapper">
+      <canvas
+        baseChart
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins"
+      >
+      </canvas>
+    </div>
+
+    <div class="submitbutton">
+      <!-- <button mat-raised-button color="warn" (click) = "link()" class="btn1">Link Account</button><br><br> -->
+      <button mat-raised-button color="primary" (click)="logOut()" class="btn2">
+        Sign Out
+      </button>
+      <div>
+        <tr *ngFor="let data of dbData | async">
+          <td>{{ data.label }}</td>
+          <td>{{ data.value }}</td>
+        </tr>
+      </div>
+
+      <h3>
+        Thanks for using Smart Dustbin. Credits will be awarded to you. Hope you
+        use it again.
+      </h3>
+    </div>
+    <div>
+      <h2>{{ this.data }}</h2>
+    </div>
+    <!-- including Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
+  </body>
+</html>
